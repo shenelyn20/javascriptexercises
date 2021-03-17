@@ -1,2 +1,2 @@
 # javascriptexercises
-Mini exercises on Javascript
+Compilation of Mini exercises on Javascript

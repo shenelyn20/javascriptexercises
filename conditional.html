@@ -1,0 +1,110 @@
+<!--
+Using the flowchart below, write the code to represent checking your balance at the ATM. 
+The yellow diamonds represent conditional statements and the blue rectangles with 
+rounded corners represent what should be printed to the console.
+
+Use the following variables in your solution:
+
+balance - the account balance
+isActive - if account is active
+checkBalance - if you want to check balance
+Hint: The variable balance could be a value less than, greater than, or equal to 0. 
+The variables isActive and checkBalance are booleans that can be set to true or false.
+
+TIP: To print out the account balance with decimal points (i.e. 325.00), 
+use the .toFixed() method and pass it the number of decimal points you want to use. 
+For example, balance.toFixed(2) returns 325.00.
+
+TIP: Make sure to test your code with different values. 
+For example,
+
+If checkBalance equals true and isActive equals false, 
+then Your account is no longer active. should be printed to the console.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ATM Check Balance</title>
+	<style>
+		.default:hover {
+		  background: #e7e7e7;
+		}
+		.btn {
+			border: none;
+			background-color: inherit;
+			padding: 14px 28px;
+			font-size: 16px;
+			cursor: pointer;
+			display: inline-block;
+		}
+
+		/* Green */
+		.yes {
+			color: green;
+		}
+
+		.yes:hover {
+			background-color: #4CAF50;
+			color: white;
+		}
+
+		/* Red */
+		.no {
+		  color: red;
+		}
+		
+		.no:hover {
+		  background: #f44336;
+		  color: white;
+		}
+
+	</style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+    <meta charset="UTF-8">
+</head>
+<body>
+	<h2 id ="myBalance"> Check your Balance? </h2>
+	<div id ="optButton">
+	  	<button class="btn yes" onclick="checkBalance()">Yes</button>
+	  	<button class="btn no" onclick="cancelBalanceCheck()">No</button>
+	</div>
+	<!-- <input type="text" id="userInput"=>give me input</input>
+    <button onclick="test()">Submit</button> -->
+
+	<script>
+		function hideButtons(){
+			var hideButton = document.getElementById("optButton");
+			hideButton.style.display = "none";
+		}
+
+		function checkBalance(){
+			var balance = 325.3456;
+			var isActive = true;
+			var sBalance = '';
+
+			if ( isActive === true){
+				if(balance > 0){
+					sBalance="Your balance is $" + balance.toFixed(2) + ".";
+				}else if (balance === 0){ // balance =0 or negative
+					sBalance="Your account is empty.";
+				}else{
+					sBalance="Your balance is negative. Please contact bank.";
+				}
+			}else{ //account inactive
+					sBalance="Your account is no longer active.";
+			}
+			
+			hideButtons();
+			document.getElementById("myBalance").innerHTML = sBalance;
+		}
+
+		function cancelBalanceCheck(){
+			hideButtons();
+			document.getElementById("myBalance").innerHTML="Thank you. Have a nice day!";
+		}
+		
+
+	</script>    
+</body>
+</html>

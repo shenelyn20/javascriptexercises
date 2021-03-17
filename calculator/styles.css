@@ -1,0 +1,28 @@
+* {
+    box-sizing: border-box;
+  }
+
+.main-calc{
+    width: 30%;
+    border: solid black 1px ;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.input-num{
+    width: 100%;
+    font-size: 70px;
+
+}
+
+button{
+    width: 25%;
+    font-size: 70px;
+    height: 100%; /* 100% base on the size of font */
+}
+
+.two-button{
+    width: 50%;
+}

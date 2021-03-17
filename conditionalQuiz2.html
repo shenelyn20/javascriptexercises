@@ -1,0 +1,91 @@
+<!--*
+ * Programming Quiz: What do I Wear? (3-7)
+ *
+ * Using if/else statements, create a series of logical expressions that logs the size of a t-shirt based on the measurements of:
+ *   - shirtWidth
+ *   - shirtLength
+ *   - shirtSleeve
+ *
+ * Use the chart above to print out one of the following correct values:
+ *   - S, M, L, XL, 2XL, or 3XL
+ */
+
+// change the values of `shirtWidth`, `shirtLength`, and `shirtSleeve` to test your code
+
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>What's your SIZE???</title>
+	<style>
+
+		/* Green */
+		h2 {
+			background-color: #4CAF50;
+			color: white;
+		}
+		.yourSize {
+		  background: #f44336;
+		  color: white;
+		}
+	</style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+    <meta charset="UTF-8">
+</head>
+<body>
+	<h2>Enter Shirt Width: </h2>
+	<input type="number" id="shirtWidth" value=""></input>
+
+	<h2>Enter Shirt Length: </h2>
+	<input type="number" id="shirtLength" value=""></input>
+
+	<h2>Enter Shirt Sleeve: </h2>
+	<input type="number" id="shirtSleeve" value=""></input>
+
+    <button onclick="checkSize()">Submit</button>
+
+	<script>
+	var clicked = false;
+	function hidePrevOutput(){
+		var hideButton = document.getElementById("optButton");
+		hideButton.style.display = "none";
+	}
+	
+	function checkSize(){
+		var shirtWidth = document.getElementById("shirtWidth").value;
+		var shirtLength = document.getElementById("shirtLength").value;
+		var shirtSleeve = document.getElementById("shirtSleeve").value;
+
+		var h2Element = document.createElement("h2");
+  		h2Element.id = "outputSize";
+  		h2Element.className = "yourSize";
+
+		console.log(shirtWidth, shirtLength, shirtSleeve);
+		// Write your if/else code here
+		if ( (shirtWidth >= 18 && shirtWidth < 20) && (shirtLength >= 28 && shirtLength < 29) && (shirtSleeve >= 8.13 && shirtSleeve < 8.38) ){
+		    var outputSize = document.createTextNode("YOUR ARE SIZE: S");    
+		}else if ( (shirtWidth >= 20 && shirtWidth < 22) && (shirtLength >= 29 && shirtLength < 30) && (shirtSleeve >= 8.38 && shirtSleeve < 8.63) ){
+		    var outputSize = document.createTextNode("YOUR ARE SIZE: M");    
+		}else if ( (shirtWidth >= 22 && shirtWidth < 24) && (shirtLength >= 30 && shirtLength < 31) && (shirtSleeve >= 8.63 && shirtSleeve < 8.88) ){
+		    var outputSize = document.createTextNode("YOUR ARE SIZE: L");    
+		}else if ( (shirtWidth >= 24 && shirtWidth < 26) && (shirtLength >= 31 && shirtLength < 33) && (shirtSleeve >= 8.88 && shirtSleeve < 9.63) ){
+		    var outputSize = document.createTextNode("YOUR ARE SIZE: XL");    
+		}else if ( (shirtWidth >= 26 && shirtWidth < 28) && (shirtLength >= 33 && shirtLength < 34) && (shirtSleeve >= 9.63 && shirtSleeve < 10.13) ){
+		    var outputSize = document.createTextNode("YOUR ARE SIZE: 2XL");    
+		}else if ( shirtWidth == 28 && shirtLength == 34 && (shirtSleeve >= 10.13) ){
+		    var outputSize = document.createTextNode("YOUR ARE SIZE: 3XL");    
+		}else{
+		    var outputSize = document.createTextNode("N/A");
+		}
+
+		h2Element.appendChild(outputSize);
+  		document.body.appendChild(h2Element);
+
+  		if (clicked === true) document.getElementById("outputSize").remove();
+		clicked = true;
+	}
+	
+	</script>    
+</body>
+</html>
